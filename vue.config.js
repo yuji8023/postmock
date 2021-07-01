@@ -3,7 +3,7 @@ module.exports = {
   publicPath: './',
   devServer: {
     disableHostCheck: true,
-    // proxy: 'https://passport.111.com.cn'
+    proxy: 'https://gateway.fangkuaiyi.com'
     // {
     //   '/api': {
     //     target: 'https://passport.111.com.cn',

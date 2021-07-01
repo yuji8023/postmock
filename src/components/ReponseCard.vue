@@ -1,7 +1,7 @@
 <template>
   <div class="reponseBox">
     <el-card class="box-card">
-      <pre v-highlightjs><code class="json" v-html="code"></code></pre>
+      <pre v-highlightjs><code class="json" v-html="formatCode(code)"></code></pre>
     </el-card>
   </div>
 </template>
@@ -11,24 +11,20 @@ import hljs from 'highlight.js'
 export default {
   name: 'ReponstCard',
   props: {
-   
-  },
-  data() {
-    return {
-      code: null,
-    }
+   code: String
   },
   updated() {
     document.querySelectorAll("pre code").forEach((block) => {
       hljs.highlightBlock(block);
     });
   },
-       
   methods: {
-    setCode(val) {
-      this.code = JSON.stringify(val, null, 2)
-    },
-  }
+    formatCode: function (value) {
+      if (!value) return ''
+      value = JSON.parse(value)
+      return JSON.stringify(value, null, 2)
+    }
+  },
 }
 
 </script>

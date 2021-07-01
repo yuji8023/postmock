@@ -16,6 +16,7 @@ import('highlight.js/styles/atom-one-dark.css');
 
 axios.defaults.withCredentials = false;
 axios.defaults.crossDomain = true;
+axios.defaults.timeout = 30000;
 
 Vue.prototype.$axios = axios    //全局注册，使用方法为:this.$axios
 Vue.prototype.qs = qs           //全局注册，使用方法为:this.qs

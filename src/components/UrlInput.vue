@@ -1,10 +1,11 @@
 <template>
   <div class="urlBox">
     <el-input placeholder="Enter request URL" v-model="inputVal" class="input-with-select">
-      <el-select v-model="select" slot="prepend" placeholder="请选择">
+      <!-- <el-select v-show="false" v-model="select" slot="prepend" placeholder="请选择">
         <el-option label="GET" value="get"></el-option>
         <el-option label="POST" value="post"></el-option>
-      </el-select>
+      </el-select> -->
+      <template slot="prepend">Url</template>
     </el-input>
   </div>
 </template>

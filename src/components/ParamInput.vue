@@ -38,7 +38,7 @@
       </el-tab-pane>
     </el-tabs>
     
-    <el-button class="send" @click="send" type="primary">Send</el-button>
+    <el-button class="send" @click="send" type="primary" :loading="sendLoading">Send</el-button>
     <!-- <el-alert
       title="内容格式错误"
       type="error">
@@ -48,13 +48,11 @@
 
 <script>
 import * as common from '../utils/common.js';
-const str1 = 
-`name: yuji
-age: 18`
+const str1 = `paramStr: yuji`
 export default {
   name: 'UrlInput',
   props: {
-    
+    sendLoading: Boolean
   },
   data() {
     return {
@@ -69,7 +67,6 @@ export default {
   methods: {
     handleClick(tab) {
       this.activeName = tab.name;
-      // console.log(tab, event);
     },
     setType(type) {
       if (this.type == type) return;
@@ -102,7 +99,6 @@ export default {
       return obj;
     },
     send() {
-      console.log(this.getParam())
       this.$emit('handle-request', {
         paramObj: this.getParam(),
         headerObj: common.kvStringToObject(this.headerStr),
